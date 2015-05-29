@@ -5,7 +5,7 @@ Parses and stringifies CSS selectors.
 ``` js
 import Tokenizer from "css-selector-tokenizer";
 
-let input = "a#content.active > div::first-line [data-content], a:visited";
+let input = "a#content.active > div::first-line [data-content], a:not(:visited)";
 
 Tokenizer.parse(input); // === expected
 let expected = {
@@ -28,7 +28,14 @@ let expected = {
       type: "selector",
       nodes: [
         { type: "element", name: "a" },
-        { type: "pseudo-class", name: "visited" }
+        { type: "nested-pseudo-class", name: "not", nodes: [
+          {
+            type: "selector",
+            nodes: [
+              { type: "pseudo-class", name: "visited" }
+            ]
+          }
+        ] }
       ],
       before: " "
     }

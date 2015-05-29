@@ -20,6 +20,27 @@ module.exports = {
 		])
 	],
 
+	"element with namespace": [
+		"foo|h1",
+		singleSelector([
+			{ type: "element", name: "h1", namespace: "foo" }
+		])
+	],
+
+	"element with any namespace": [
+		"*|h1",
+		singleSelector([
+			{ type: "element", name: "h1", namespace: "*" }
+		])
+	],
+
+	"element without namespace": [
+		"|h1",
+		singleSelector([
+			{ type: "element", name: "h1", namespace: "" }
+		])
+	],
+
 	"class name": [
 		".className",
 		singleSelector([
@@ -42,9 +63,23 @@ module.exports = {
 	],
 
 	"pseudo class with content": [
+		":abc(.className)",
+		singleSelector([
+			{ type: "pseudo-class", name: "abc", content: ".className" }
+		])
+	],
+
+	"nested pseudo class with content": [
 		":not(.className)",
 		singleSelector([
-			{ type: "pseudo-class", name: "not", content: ".className" }
+			{ type: "nested-pseudo-class", name: "not", nodes: [
+				{
+					type: "selector",
+					nodes: [
+						{ type: "class", name: "className" }
+					]
+				}
+			] }
 		])
 	],
 
@@ -55,10 +90,31 @@ module.exports = {
 		])
 	],
 
-	"all": [
+	"universal": [
 		"*",
 		singleSelector([
-			{ type: "all" }
+			{ type: "universal" }
+		])
+	],
+
+	"universal with namespace": [
+		"foo|*",
+		singleSelector([
+			{ type: "universal", namespace: "foo" }
+		])
+	],
+
+	"universal with any namespace": [
+		"*|*",
+		singleSelector([
+			{ type: "universal", namespace: "*" }
+		])
+	],
+
+	"universal without namespace": [
+		"|*",
+		singleSelector([
+			{ type: "universal", namespace: "" }
 		])
 	],
 
@@ -156,6 +212,39 @@ module.exports = {
 		":import(\"./module.css\")",
 		singleSelector([
 			{ type: "pseudo-class", name: "import", content: "\"./module.css\"" }
+		])
+	],
+
+	"nested pseudo class with multiple selectors": [
+		":has( h1, h2 )",
+		singleSelector([
+			{ type: "nested-pseudo-class", name: "has", nodes: [
+				{
+					type: "selector",
+					nodes: [
+						{ type: "element", name: "h1" }
+					],
+					before: " "
+				},
+				{
+					type: "selector",
+					nodes: [
+						{ type: "element", name: "h2" }
+					],
+					before: " ",
+					after: " "
+				}
+			] }
+		])
+	],
+
+	"invalid nesting": [
+		"a ) b",
+		singleSelector([
+			{ type: "element", name: "a" },
+			{ type: "invalid", value: " )" },
+			{ type: "spacing", value: " " },
+			{ type: "element", name: "b" }
 		])
 	]
 };
