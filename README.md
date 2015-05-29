@@ -17,7 +17,7 @@ let expected = {
         { type: "element", name: "a" },
         { type: "id", name: "content" },
         { type: "class", name: "active" },
-        { type: "operator", name: ">", before: " ", after: " " },
+        { type: "operator", operator: ">", before: " ", after: " " },
         { type: "element", name: "div" },
         { type: "pseudo-element", name: "first-line" },
         { type: "spacing", value: " " },
@@ -43,6 +43,25 @@ let expected = {
 }
 
 Tokenizer.stringify(expected) // === input
+
+// * => { type: "universal" }
+// foo|element = { type: "element", name: "element", namespace: "foo" }
+// *|* = { type: "universal", namespace: "*" }
+// :has(h1, h2) => { type: "nested-pseudo-class", name: "has", nodes: [
+//     {
+//       type: "selector",
+//       nodes: [
+//         { type: "element", name: "h1" }
+//       ]
+//     },
+//     {
+//       type: "selector",
+//       nodes: [
+//         { type: "element", name: "h2" }
+//       ],
+//       before: " "
+//     }
+//   ] }
 ```
 
 ## Building
