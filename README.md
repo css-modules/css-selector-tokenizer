@@ -49,7 +49,6 @@ Tokenizer.stringify(expected) // === input
 
 ```
 npm install
-npm build
 npm test
 ```
 
@@ -60,8 +59,8 @@ npm test
 
 ## Development
 
-- `npm watch` will watch `src` for changes and rebuild
-- `npm autotest` will watch `src` and `test` for changes and retest
+- `npm watch` will watch `lib` for changes and rebuild
+- `npm autotest` will watch `lib` and `test` for changes and retest
 
 ## License
 
