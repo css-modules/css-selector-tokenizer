@@ -215,6 +215,39 @@ module.exports = {
 		])
 	],
 
+	"export": [
+		":export",
+		singleSelector([
+			{ type: "pseudo-class", name: "export" }
+		])
+	],
+
+	"local and global": [
+		":global :local :global(.className a[href]):local( #idName )",
+		singleSelector([
+			{ type: "pseudo-class", name: "global" },
+			{ type: "spacing", value: " " },
+			{ type: "pseudo-class", name: "local" },
+			{ type: "spacing", value: " " },
+			{ type: "nested-pseudo-class", name: "global", nodes: [
+				{ type: "selector", nodes: [
+					{ type: "class", name: "className" },
+					{ type: "spacing", value: " " },
+					{ type: "element", name: "a" },
+					{ type: "attribute", content: "href" }
+				] }
+			] },
+			{ type: "nested-pseudo-class", name: "local", nodes: [
+				{
+					type: "selector", nodes: [
+						{ type: "id", name: "idName" }
+					],
+					before: " ", after: " "
+				}
+			] }
+		])
+	],
+
 	"nested pseudo class with multiple selectors": [
 		":has( h1, h2 )",
 		singleSelector([
