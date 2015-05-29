@@ -271,6 +271,35 @@ module.exports = {
 		])
 	],
 
+	"nested pseudo class with nested selectors": [
+		":has(h1:not(:has(:visited)))",
+		singleSelector([
+			{ type: "nested-pseudo-class", name: "has", nodes: [
+				{
+					type: "selector",
+					nodes: [
+						{ type: "element", name: "h1" },
+						{ type: "nested-pseudo-class", name: "not", nodes: [
+							{
+								type: "selector",
+								nodes: [
+									{ type: "nested-pseudo-class", name: "has", nodes: [
+										{
+											type: "selector",
+											nodes: [
+												{ type: "pseudo-class", name: "visited" }
+											]
+										}
+									] }
+								]
+							}
+						] }
+					]
+				}
+			] }
+		])
+	],
+
 	"invalid nesting": [
 		"a ) b",
 		singleSelector([
