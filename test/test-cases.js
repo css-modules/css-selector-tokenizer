@@ -300,6 +300,21 @@ module.exports = {
 		])
 	],
 
+	"invalid chars": [
+		"a'b/c\"d[e",
+		singleSelector([
+			{ type: "element", name: "a" },
+			{ type: "invalid", value: "'" },
+			{ type: "element", name: "b" },
+			{ type: "invalid", value: "/" },
+			{ type: "element", name: "c" },
+			{ type: "invalid", value: "\"" },
+			{ type: "element", name: "d" },
+			{ type: "invalid", value: "[" },
+			{ type: "element", name: "e" }
+		])
+	],
+
 	"invalid nesting": [
 		"a ) b",
 		singleSelector([
