@@ -11,7 +11,7 @@
     "precover": "npm run lint",
     "cover": "istanbul cover node_modules/mocha/bin/_mocha",
     "travis": "npm run cover -- --report lcovonly",
-    "publish-patch": "npm version patch && git push && git push --tags && npm publish"
+    "publish-patch": "npm test && npm version patch && git push && git push --tags && npm publish"
   },
   "repository": {
     "type": "git",
