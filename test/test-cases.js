@@ -55,6 +55,13 @@ module.exports = {
 		])
 	],
 
+	"at rule": [
+		"@keyframes",
+		singleSelector([
+			{ type: "at-rule", name: "keyframes" }
+		])
+	],
+
 	"pseudo class": [
 		":before",
 		singleSelector([
