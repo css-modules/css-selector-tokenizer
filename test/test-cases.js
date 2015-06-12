@@ -48,6 +48,20 @@ module.exports = {
 		])
 	],
 
+	"complex class name": [
+		".class\\.Name",
+		singleSelector([
+			{ type: "class", name: "class\\.Name" }
+		])
+	],
+
+	"class name starting with number": [
+		".\\5-5",
+		singleSelector([
+			{ type: "class", name: "\\5-5" }
+		])
+	],
+
 	"id name": [
 		"#idName",
 		singleSelector([
