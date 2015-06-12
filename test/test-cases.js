@@ -48,10 +48,31 @@ module.exports = {
 		])
 	],
 
+	"complex class name": [
+		".class\\.Name",
+		singleSelector([
+			{ type: "class", name: "class.Name" }
+		])
+	],
+
+	"class name starting with number": [
+		".\\5\\#-\\.5",
+		singleSelector([
+			{ type: "class", name: "5#-.5" }
+		])
+	],
+
 	"id name": [
 		"#idName",
 		singleSelector([
 			{ type: "id", name: "idName" }
+		])
+	],
+
+	"id name starting with number": [
+		"#\\5\\#-\\.5",
+		singleSelector([
+			{ type: "id", name: "5#-.5" }
 		])
 	],
 
@@ -62,10 +83,24 @@ module.exports = {
 		])
 	],
 
+	"pseudo class with escaping": [
+		":be\\:fo\\#r\\.e",
+		singleSelector([
+			{ type: "pseudo-class", name: "be:fo#r.e" }
+		])
+	],
+
 	"pseudo class with content": [
 		":abc(.className)",
 		singleSelector([
 			{ type: "pseudo-class", name: "abc", content: ".className" }
+		])
+	],
+
+	"pseudo class with content and escaping": [
+		":a\\:b\\.c(.className)",
+		singleSelector([
+			{ type: "pseudo-class", name: "a:b.c", content: ".className" }
 		])
 	],
 
@@ -90,6 +125,13 @@ module.exports = {
 		])
 	],
 
+	"pseudo element with escaping": [
+		"::fir\\:\\:st\\.li\\#ne",
+		singleSelector([
+			{ type: "pseudo-element", name: "fir::st.li#ne" }
+		])
+	],
+
 	"universal": [
 		"*",
 		singleSelector([
@@ -101,6 +143,13 @@ module.exports = {
 		"foo|*",
 		singleSelector([
 			{ type: "universal", namespace: "foo" }
+		])
+	],
+
+	"universal with namespace and escaping": [
+		"f\\|o\\.o|*",
+		singleSelector([
+			{ type: "universal", namespace: "f|o.o" }
 		])
 	],
 
