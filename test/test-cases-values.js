@@ -68,6 +68,50 @@ module.exports = {
 			{ type: "url", url: "ghi)j\"k", innerSpacingBefore: " " }
 		])
 	],
+	"nested-item": [
+		"format('woff')",
+		singleValue([
+			{ type: "nested-item", name: "format", nodes: [
+				{ type: "value", nodes: [
+					{ type: "string", stringType: "'", value: "woff"}
+				]}
+			] }
+		])
+	],
+	"nested-item-difficult": [
+		"format('woff'), format( \"a b, c\" )",
+		{
+			type: "values",
+			nodes: [
+				{ type: "value", nodes: [
+					{ type: "nested-item", name: "format", nodes: [
+						{ type: "value", nodes: [
+							{ type: "string", stringType: "'", value: "woff"}
+						]}
+					] }
+				] },
+				{ type: "value", nodes: [
+					{ type: "nested-item", name: "format", nodes: [
+						{ type: "value", nodes: [
+							{ type: "string", stringType: "\"", value: "a b, c"}
+						], before: " ", after: " " }
+					] }
+				], before: " " }
+			]
+		}
+	],
+	"invalid": [
+		" ) ) ",
+		{
+			type: "values",
+			nodes: [
+				{ type: "value", nodes: [
+					{ type: "invalid", value: ")", after: " " },
+					{ type: "invalid", value: ")" }
+				], before: " ", after: " " }
+			]
+		}
+	],
 	"spacing": [
 		"   hello\n\t world\t",
 		{
