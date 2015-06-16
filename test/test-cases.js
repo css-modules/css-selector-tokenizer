@@ -372,5 +372,23 @@ module.exports = {
 			{ type: "spacing", value: " " },
 			{ type: "element", name: "b" }
 		])
+	],
+
+	"invalid number": [
+		"0%",
+		singleSelector([
+			{ type: "invalid", value: "0" },
+			{ type: "invalid", value: "%" }
+		])
+	],
+
+	"invalid class name": [
+		".10a0",
+		singleSelector([
+			{ type: "invalid", value: "." },
+			{ type: "invalid", value: "1" },
+			{ type: "invalid", value: "0" },
+			{ type: "element", name: "a0" }
+		])
 	]
 };
