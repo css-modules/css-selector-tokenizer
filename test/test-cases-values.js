@@ -52,6 +52,12 @@ module.exports = {
 			{ type: "string", value: "e\" f", stringType: "\"" }
 		])
 	],
+	"strings with escaped chars": [
+		"'\\f0e3'",
+		singleValue([
+			{ type: "string", value: "\\f0e3", stringType: "'" }
+		])
+	],
 	"comment": [
 		"item /* hello world */ item",
 		singleValue([
