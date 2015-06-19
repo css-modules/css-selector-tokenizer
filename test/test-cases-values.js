@@ -123,5 +123,28 @@ module.exports = {
 				], before: "   ", after: "\t" }
 			]
 		}
+	],
+	"escaped unicode": [
+		"'\\f0e3\\\\\\'\"'",
+		singleValue([
+			{ type: "string", stringType: "'", value: "\uf0e3\\'\"" }
+		])
+	],
+	"escaped unicode 2": [
+		"\"\\f0e3\\\\'\\\"\"",
+		singleValue([
+			{ type: "string", stringType: "\"", value: "\uf0e3\\'\"" }
+		])
+	],
+	"nested-item-with append": [
+		"linear-gradient(45deg) 25%",
+		singleValue([
+			{ type: "nested-item", name: "linear-gradient", nodes: [
+				{ type: "value", nodes: [
+					{ type: "item", name: "45deg"}
+				]}
+			], after: " " },
+			{ type: "item", name: "25%" }
+		])
 	]
 };
