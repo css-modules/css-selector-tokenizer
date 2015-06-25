@@ -136,6 +136,12 @@ module.exports = {
 			{ type: "string", stringType: "\"", value: "\uf0e3\\'\"" }
 		])
 	],
+	"escaped unicode 3": [
+		"\"\\2a\\\\'\\\"\"",
+		singleValue([
+			{ type: "string", stringType: "\"", value: "\u002a\\'\"" }
+		])
+	],
 	"nested-item-with append": [
 		"linear-gradient(45deg) 25%",
 		singleValue([
