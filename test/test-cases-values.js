@@ -125,15 +125,27 @@ module.exports = {
 		}
 	],
 	"escaped unicode": [
-		"'\\f0e3\\\\\\'\"'",
+		"'\\F0E3\\\\\\'\"'",
 		singleValue([
 			{ type: "string", stringType: "'", value: "\uf0e3\\'\"" }
 		])
 	],
 	"escaped unicode 2": [
-		"\"\\f0e3\\\\'\\\"\"",
+		"\"\\F0E3\\\\'\\\"\"",
 		singleValue([
 			{ type: "string", stringType: "\"", value: "\uf0e3\\'\"" }
+		])
+	],
+	"escaped unicode 3 (short)": [
+		"\"\\10\"",
+		singleValue([
+			{ type: "string", stringType: "\"", value: "\u0010" }
+		])
+	],
+	"escaped unicode 4 (surrogate pair)": [
+		"\"\\1F50E\"",
+		singleValue([
+			{ type: "string", stringType: "\"", value: "\ud83d\udd0e" }
 		])
 	],
 	"nested-item-with append": [

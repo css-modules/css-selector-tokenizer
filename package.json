@@ -31,6 +31,7 @@
   },
   "homepage": "https://github.com/css-modules/css-selector-tokenizer",
   "dependencies": {
+    "cssesc": "^0.1.0",
     "fastparse": "^1.1.1"
   },
   "devDependencies": {
