@@ -186,7 +186,7 @@ module.exports = {
 	],
 
 	"operators": [
-		"a > .class-name~.x123+ div",
+		"a > .class-name~.x123+ div >> col || td",
 		singleSelector([
 			{ type: "element", name: "a" },
 			{ type: "operator", operator: ">", before: " ", after: " " },
@@ -194,7 +194,11 @@ module.exports = {
 			{ type: "operator", operator: "~" },
 			{ type: "class", name: "x123" },
 			{ type: "operator", operator: "+", after: " " },
-			{ type: "element", name: "div" }
+			{ type: "element", name: "div" },
+			{ type: "operator", operator: ">>", before: " ", after: " " },
+			{ type: "element", name: "col" },
+			{ type: "operator", operator: "||", before: " ", after: " " },
+			{ type: "element", name: "td" }
 		])
 	],
 
