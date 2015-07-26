@@ -55,10 +55,13 @@ module.exports = {
 		])
 	],
 
-	"class name starting with number": [
-		".\\5\\#-\\.5",
+	"class name starting with number or dash": [
+		".\\5\\#-\\.5 .\\--name.-name",
 		singleSelector([
-			{ type: "class", name: "5#-.5" }
+			{ type: "class", name: "5#-.5" },
+			{ type: "spacing", value: " " },
+			{ type: "class", name: "--name" },
+			{ type: "class", name: "-name" }
 		])
 	],
 
@@ -251,7 +254,7 @@ module.exports = {
 	],
 
 	"pseudo class with difficult content": [
-		":--anything-new(/* here is difficult ')][ .content */\nurl('Hello)World'), \"Hello)\\\".World\")",
+		":\\--anything-new(/* here is difficult ')][ .content */\nurl('Hello)World'), \"Hello)\\\".World\")",
 		singleSelector([
 			{ type: "pseudo-class", name: "--anything-new", content: "/* here is difficult ')][ .content */\nurl('Hello)World'), \"Hello)\\\".World\"" }
 		])
@@ -315,6 +318,28 @@ module.exports = {
 					],
 					before: " ",
 					after: " "
+				}
+			] }
+		])
+	],
+
+	"available nested pseudo classes": [
+		":not(:active):matches(:focus)",
+		singleSelector([
+			{ type: "nested-pseudo-class", name: "not", nodes: [
+				{
+					type: "selector",
+					nodes: [
+						{ type: "pseudo-class", name: "active" }
+					]
+				}
+			] },
+			{ type: "nested-pseudo-class", name: "matches", nodes: [
+				{
+					type: "selector",
+					nodes: [
+						{ type: "pseudo-class", name: "focus" }
+					]
 				}
 			] }
 		])
