@@ -100,6 +100,35 @@ module.exports = {
 			]
 		}
 	],
+	"nested-item image-set": [
+		"image-set(url(a) 1x, url('b') 2x), -webkit-image-set(url(\"a\") 1x, url(b) 2x)",
+		{ type: "values", nodes: [
+			{ type: "value", nodes: [
+				{ type: "nested-item", name: "image-set", nodes: [
+					{ type: "value", nodes: [
+						{ type: "url", url: "a", after: " " },
+						{ type: "item", name: "1x" }
+					] },
+					{ type: "value", nodes: [
+						{ type: "url", stringType: "'", url: "b", after: " " },
+						{ type: "item", name: "2x" }
+					], before: " " }
+				] }
+			] },
+			{ type: "value", nodes: [
+				{ type: "nested-item", name: "-webkit-image-set", nodes: [
+					{ type: "value", nodes: [
+						{ type: "url", stringType: "\"", url: "a", after: " " },
+						{ type: "item", name: "1x" }
+					] },
+					{ type: "value", nodes: [
+						{ type: "url", url: "b", after: " " },
+						{ type: "item", name: "2x" }
+					], before: " " }
+				] }
+			], before: " " }
+		] }
+	],
 	"invalid": [
 		" ) ) ",
 		{
