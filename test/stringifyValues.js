@@ -10,7 +10,7 @@ describe("stringifyValues", function() {
 	Object.keys(testCases).forEach(function(testCase) {
 		it("should stringify values " + testCase, function() {
 			var input = testCases[testCase][1];
-			var expected = testCases[testCase][0];
+			var expected = testCases[testCase][2] || testCases[testCase][0];
 			assert.deepEqual(Tokenizer.stringifyValues(input), expected);
 		});
 	});
