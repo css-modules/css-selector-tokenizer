@@ -65,6 +65,27 @@ module.exports = {
 		])
 	],
 
+	"class name with high BMP character": [
+		".字",
+		singleSelector([
+			{ type: "class", name: "字" }
+		])
+	],
+
+	"class name with emoji": [
+		".🤔",
+		singleSelector([
+			{ type: "class", name: "🤔" }
+		])
+	],
+
+	"class name with multiple emoji": [
+		".👍👌",
+		singleSelector([
+			{ type: "class", name: "👍👌" }
+		])
+	],
+
 	"id name": [
 		"#idName",
 		singleSelector([
@@ -76,6 +97,20 @@ module.exports = {
 		"#\\5\\#-\\.5",
 		singleSelector([
 			{ type: "id", name: "5#-.5" }
+		])
+	],
+
+	"id name with latin-1 character": [
+		"#¡",
+		singleSelector([
+			{ type: "id", name: "¡" }
+		])
+	],
+
+	"id name with complex emoji": [
+		".🖖🏼",
+		singleSelector([
+			{ type: "class", name: "🖖🏼" }
 		])
 	],
 

@@ -32,7 +32,8 @@
   "homepage": "https://github.com/css-modules/css-selector-tokenizer",
   "dependencies": {
     "cssesc": "^0.1.0",
-    "fastparse": "^1.1.1"
+    "fastparse": "^1.1.1",
+    "regexpu-core": "^1.0.0"
   },
   "devDependencies": {
     "chokidar-cli": "^0.2.1",
