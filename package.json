@@ -1,6 +1,6 @@
 {
   "name": "css-selector-tokenizer",
-  "version": "0.5.4",
+  "version": "0.5.5",
   "description": "Parses and stringifies CSS selectors",
   "main": "lib/index.js",
   "scripts": {
