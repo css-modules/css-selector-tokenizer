@@ -175,7 +175,20 @@ module.exports = {
 		"\"\\1F50E\"",
 		singleValue([
 			{ type: "string", stringType: "\"", value: "\ud83d\udd0e" }
-		])
+		]),
+  ],
+	"escaped unicode 5 (extra short)": [
+		"\"\\A\"",
+		singleValue([
+			{ type: "string", stringType: "\"", value: "\u000A" }
+		]),
+	],
+	"escaped unicode 6 (full length)": [
+		"\"\\00000A\"",
+		singleValue([
+			{ type: "string", stringType: "\"", value: "\u000A" }
+		]),
+		"\"\\A\""
 	],
 	"nested-item-with append": [
 		"linear-gradient(45deg) 25%",
