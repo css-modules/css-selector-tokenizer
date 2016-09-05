@@ -68,6 +68,12 @@ module.exports = {
 			{ type: "url", url: "ghi)j\"k", innerSpacingBefore: " " }
 		])
 	],
+	"windows-urls": [
+		"url('C:\\\\Users\\\\Test\\\\test.png')",
+		singleValue([
+			{ type: "url", url: "C:\\Users\\Test\\test.png", stringType: "'"}
+		])
+	],
 	"nested-item": [
 		"format('woff')",
 		singleValue([
