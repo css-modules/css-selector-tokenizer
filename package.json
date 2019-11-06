@@ -39,7 +39,7 @@
     "chokidar-cli": "^0.2.1",
     "codecov.io": "^0.1.2",
     "coveralls": "^2.11.2",
-    "eslint": "^0.21.2",
+    "eslint": "^6.6.0",
     "istanbul": "^0.3.14",
     "mocha": "^2.2.5"
   },
