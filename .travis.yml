@@ -1,15 +1,13 @@
-sudo: false
 language: node_js
-node_js:
-  - "0.10"
-  - "0.12"
-  - "iojs"
-script: npm run travis
 
-before_install:
-  - '[ "${TRAVIS_NODE_VERSION}" != "0.10" ] || npm install -g npm'
+node_js:
+  - 10
+  - 12
+  - 13
+
+script: npm run cover
 
 after_success:
-  - cat ./coverage/lcov.info | node_modules/.bin/coveralls --verbose
-  - cat ./coverage/coverage.json | node_modules/codecov.io/bin/codecov.io.js
-  - rm -rf ./coverage
+  - npm run report:coveralls
+  - npm run report:codecov
+
