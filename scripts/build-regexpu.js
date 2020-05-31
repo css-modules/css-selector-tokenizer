@@ -21,7 +21,9 @@ var targetFile = path.join(__dirname, "../lib/uni-regexp.js");
 
 fs.writeFileSync(
   targetFile,
-  "/* AUTO GENERATED */\nmodule.exports = " + JSON.stringify(uniReg, null, 4) + '\n'
+  "/* AUTO GENERATED */\nmodule.exports = " +
+    JSON.stringify(uniReg, null, 4) +
+    "\n"
 );
 
-console.log('Done building ' + targetFile)
+console.log("Done building " + targetFile);
