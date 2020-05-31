@@ -23,4 +23,5 @@ fs.writeFileSync(
   targetFile,
   "/* AUTO GENERATED */\nmodule.exports = " + JSON.stringify(uniReg, null, 4) + '\n'
 );
+
 console.log('Done building ' + targetFile)

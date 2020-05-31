@@ -5,10 +5,10 @@
   "main": "lib/index.js",
   "scripts": {
     "lint": "eslint .",
-    "pretest": "npm run build && npm run lint",
+    "pretest": "npm run lint",
     "test": "mocha",
     "cover": "nyc npm test",
-    "build": "node scripts/build-regexpu.js",
+    "build-regexpu": "node scripts/build-regexpu.js",
     "report:coveralls": "nyc report --reporter=text-lcov | coveralls",
     "report:codecov": "nyc report --reporter=text-lcov | codecov --pipe",
     "publish-patch": "npm test && npm version patch && git push && git push --tags && npm publish"
