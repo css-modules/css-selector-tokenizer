@@ -361,7 +361,106 @@ module.exports = {
 			] }
 		])
 	],
-
+	"nested pseudo class with multiple selectors (:is)": [
+		":is( h1, h2 )",
+		singleSelector([{
+			type: "nested-pseudo-class",
+			name: "is",
+			nodes: [{
+					type: "selector",
+					nodes: [{
+						type: "element",
+						name: "h1"
+					}],
+					before: " ",
+				},
+				{
+					type: "selector",
+					nodes: [{
+						type: "element",
+						name: "h2"
+					}],
+					before: " ",
+					after: " ",
+				},
+			],
+		}, ]),
+	],
+	"nested pseudo class with multiple selectors (:where)": [
+		":where( h1, h2 )",
+		singleSelector([{
+			type: "nested-pseudo-class",
+			name: "where",
+			nodes: [{
+					type: "selector",
+					nodes: [{
+						type: "element",
+						name: "h1"
+					}],
+					before: " ",
+				},
+				{
+					type: "selector",
+					nodes: [{
+						type: "element",
+						name: "h2"
+					}],
+					before: " ",
+					after: " ",
+				},
+			],
+		}, ]),
+	],
+	"nested pseudo class with multiple selectors (:any)": [
+		":any( h1, h2 )",
+		singleSelector([{
+			type: "nested-pseudo-class",
+			name: "any",
+			nodes: [{
+					type: "selector",
+					nodes: [{
+						type: "element",
+						name: "h1"
+					}],
+					before: " ",
+				},
+				{
+					type: "selector",
+					nodes: [{
+						type: "element",
+						name: "h2"
+					}],
+					before: " ",
+					after: " ",
+				},
+			],
+		}, ]),
+	],
+	"nested pseudo class with multiple selectors (:-vendor-any)": [
+		":-vendor-any( h1, h2 )",
+		singleSelector([{
+			type: "nested-pseudo-class",
+			name: "-vendor-any",
+			nodes: [{
+					type: "selector",
+					nodes: [{
+						type: "element",
+						name: "h1"
+					}],
+					before: " ",
+				},
+				{
+					type: "selector",
+					nodes: [{
+						type: "element",
+						name: "h2"
+					}],
+					before: " ",
+					after: " ",
+				},
+			],
+		}, ]),
+	],
 	"available nested pseudo classes": [
 		":not(:active):matches(:focus)",
 		singleSelector([
